@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>개발자 모드 소개</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <style>
+      #tran {
+        transition: all 2s ease;
+        width: 300px;
+        height: 200px;
+      }
+
+      #tran:hover {
+        transform: scale(1.5);
+      }
+
+      header {
+        background-color: lavenderblush;
+      }
+
+      body {
+        background-color: lavender;
+      }
+
+      footer {
+        background-color: lavenderblush;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <a href="https://developer.android.com/studio/debug/dev-options?hl=ko"
+          >안드로이드 개발자 모드</a
+        >
+      </h1>
+    </header>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">목차</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#definition"
+                >정의</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#method">활성화 방법</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                기능
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#debug">USB 디버깅</a></li>
+                <li>
+                  <a class="dropdown-item" href="#OEM"
+                    >OEM 잠금 (부트로더: bootstrap loader)</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#tedering">
+                    테더링 하드웨어 가속</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#audio"> 개발자 오디오 </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#input"> Input 표시</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form
+            class="d-flex"
+            role="search"
+            action="https://search.naver.com/search.naver"
+          >
+            <div class="search">
+              <input type="text" name="query" value="" />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <br />
+    <br />
+    <section>
+      <img
+        id="tran"
+        src="android studio logo.jpeg"
+        width="300"
+        height="200"
+        alt="안드로이드 스튜디오 로고"
+      />
+      <audio src=".mp3" controls loop></audio>
+      <br />
+      <br />
+      <article>
+        <h2 id="definition"><a>1. 개발자 모드란 무엇인가?</a></h2>
+        <p>
+          Android의 설정 앱에는 개발자 옵션이라는 화면이 있습니다. 개발자 옵션은
+          일반 사용자에게는 숨겨진 개발을 위해 필요한 설정입니다. 이 화면에서는
+          앱 성능 프로파일링과 디버깅을 도와주는 시스템 동작을 구성할 수
+          있습니다. 예를 들어, USB를 통한 디버깅 사용 설정, 버그 신고 캡처, 탭한
+          항목의 시각적 피드백 사용 설정, 창 노출 영역이 업데이트될 때 깜박임
+          표시, 2D 그래픽 렌더링에 GPU 사용 등 다양한 작업을 실행할 수 있습니다.
+          운영체제인 안드로이드의 홈페이지에서는 개발자 옵션을 일반 사용자들에겐
+          필요 없는 설정이라고 정의하고 있다. 또한 USB 디버깅, 시각적 피드백,
+          렌더링 항목을 보면 작성자는 풀어 말해 “안드로이드 앱 개발 과정중
+          테스팅하기 위한 설정”이라고 하겠다.
+        </p>
+      </article>
+      <br />
+      <br />
+      <article>
+        <h2 id="method"><a> 2. 개발자 옵션 활성화 방법 </a></h2>
+        <p>
+          [설정] → [소프트웨어 정보] → [빌드번호 7번 터치]
+          <br />
+          숨겨진 이 기능은 ‘일반 이용자’가 실수로 열지 못하도록 7번 누르는
+          과정을 거쳐야한다.
+        </p>
+      </article>
+      <br />
+      <br />
+      <h2>3. 기능</h2>
+      <br />
+      <article>
+        <h3 id="debug"><a> 3-1. USB 디버깅</a></h3>
+        <p>
+          USB 디버깅이란, 컴퓨터와 안드로이드 기기 간에 데이터를 알림 없이 읽고,
+          복사, 설치를 가능하게 하고 일부 어플리케이션을 개발 모드로 전환할 수
+          있는 개발자 옵션의 핵심 기능이다. USB 디버깅을 사용 설정하면 Android
+          기기가 디버그 브릿지- 기기와 통신할 수 있도록 지원하는 다목적 명령줄
+          도구 *Android 디버그 브리지(adb)를 통해 개발 머신과 통신할 수 있다.
+          디버깅 대기 옵션에서는 디버깅할 어플리케이션을 선택할 수도 있다.
+          <br />
+          <br />
+          -보안상의 문제
+          <br />
+          기기의 데이터를 연결된 기기가 읽을 수 있는 기능이기 때문에 개인 정보
+          노출 우려의 위험이 있어 평소 생활에는 끄는 것을 추천한다.
+        </p>
+        <p>
+          -안드로이드 디벨로퍼 앱 호환성
+          <br />
+          Android에서 앱 호환성이라는 용어는 앱이 플랫폼의 특정 버전(일반적으로
+          최신 버전)에서 올바르게 실행되는 것을 의미한다. 버전마다 개인 정보
+          보호와 보안을 향상하는 필수 변경 사항과 OS 전반에 걸쳐 전반적인 사용자
+          환경을 개선하는 변경 사항 구현을 포함한다. 이러한 변경 사항이 앱에
+          영향을 줄 수 있으므로 각 출시 버전에 포함된 동작 변경 사항을 살펴보고
+          이를 테스트한 다음 사용자를 위해 호환성 업데이트 게시가 매우 중요하다.
+          <br />
+          <br />
+          -앱 호환성이 중요한 이유<br />
+          앱 호환성은 사용자가 새 기기를 구매했거나 현재 기기에서 업데이트를
+          설치하여 최신 버전의 Android로 업데이트하면 즉각 영향을 미친다.
+          호환성을 일일이 따지지 않고 업데이트를 진행하면 앱이 올바르게 작동하지
+          않아 사용자와 개발자 모두에게 문제가 발생할 수 있다.
+        </p>
+        <p>
+          -모뎀: Modem (MOdulator and DEModulator)<br />
+
+          모뎀은 통신을 위한 변복조 장치이다. 유무선 통신에서 음향, 영상,
+          데이터와 같은 신호를 전달할 때 전송에 적합한 특정 주파수(Carrier
+          Frequency)나 펄스(Pulse)로 변환하여 보낸다. 이 변환 과정을 변조라고
+          하고, 이를 원본 신호로 되돌리는 과정을 복조라고 한다. 이 두 과정을
+          수행하는 기계를 모뎀이라고 부른다.
+        </p>
+        <p>
+          -가상 모뎀 설정이란 요약하면 계측 테스트는 am instrument 명령어를 통해
+          실행되는 특수한 테스트 실행 환경을 제공합니다. 테스트 코드는 이 계측
+          스레드에서 실행을 시작하며, 애플리케이션 컨텍스트에 대한 액세스를
+          제공하는 Instrumentation 인스턴스와 테스트 중인 애플리케이션
+          프로세스를 조작하는 API가 테스트 코드에 제공됩니다. 이때, 변복조
+          장치인 모뎀을 가상으로 지정하는 설정이다.
+        </p>
+      </article>
+      <br />
+      <article>
+        <h3 id="OEM"><a> 3-2. OEM 잠금 (부트로더: bootstrap loader) </a></h3>
+        <p>
+          컴퓨터를 부팅하거나 시동시킬 때 사용자가 컴퓨터를 사용할 수 있도록
+          외부 기억 장치로부터 운영 체계를 읽어 와 주기억 장치에 설치해 주는
+          프로그램. 일반적으로 컴퓨터의 읽기용 기억 장치(ROM)에 저장되어 있다.
+          이 저장 행위가 평소에 자동으로 이루어지지 않게 OEM(부트로더)이
+          잠겨있는데 개발자 옵션으로 이 잠금을 해제시킬 수 있다.<br />
+          하지만 기기 보호 기능을 해제시키는 것이기 때문에 해제 시 정보 보안에
+          주의해야 한다.
+        </p>
+      </article>
+      <br />
+      <article>
+        <h3 id="tedering"><a> 3-3. 테더링 하드웨어 가속 </a></h3>
+        <p>
+          테더링 하드웨어 가속은 인터넷 테더링 시 하드웨어를 더 활용해서 속도를
+          빠르게 하는 기능이다. 여기서 테더링(tethering)이란, 휴대폰 자체가 무선
+          모뎀(modem, 변복조장치) 역할을 하는 기능을 뜻한다. ‘밧줄’이라는 뜻을
+          가진 ‘테더’(tether)에사 파생된 단어로 직역 시 ‘기기들을 무선 밧줄로
+          연결’ 정도로 해석할 수 있다. 이는 ‘모바일 핫스팟’이라는 우리에게
+          익숙한 이름으로 불리며 즉, 테더링 하드웨어 가속은 쉽게 풀어 말하면
+          모바일 핫스팟 네트워크 속도를 향상시키는 기능이다.
+          <br />
+          -추가로 하단에 네트워크 속도 제한 기능도 함께 존재한다. 이는 현 개발
+          상황에서가 아닌 사용자가 내려받는 상황의 네트워크 속도를 고려하여
+          개발하고 테스팅 할 수 있도록 설정할 수 있는 기능이다.
+        </p>
+      </article>
+      <br />
+      <article>
+        <h3 id="audio"><a> 3-4. 개발자 오디오 </a></h3>
+        <p>
+          -절대 볼륨<br />
+          안드로이드는 앱이나 장치에서 출력되는 볼륨에 제한을 두고 그 이상의
+          볼륨은 모두 볼륨을 최댓값으로 변환하여 출력하는 기능이 탑재되어 있다.
+          개발자 옵션에서는 이 기능을 키고 끌 수 있다.
+          <br />
+          <br />
+          -블루투스 SAP<br />
+          SAP(Sim Access Profile)은 GSM 전화가 동일한 유형의 다른 장치와 SIM
+          카드를 공유할 수 있도록 하는 블루투스 프로필이다. 예를 들어 원격 SIM
+          액세스 프로파일(rSAP)은 자동차에서 핸즈프리 전화 작동을 위해 만들어진
+          블루투스 프로파일인데, 별도의 SIM 카드를 사용하는 대신 자동차가
+          블루투스 연결을 통해 모바일 카드를 빌리며 자동차와 장치를 블루투스로
+          빠르고 간편하게 연결시키는 기능이다.
+        </p>
+      </article>
+      <br />
+      <article>
+        <h3 id="input"><a> 3-5. Input 표시 </a></h3>
+        <p>
+          -탭한 항목 표시 <br />
+          화면에 접촉이 있을 시 원 모양의 아이콘으로 접촉 위치를 보여주는
+          기능이다. <br /><br />
+          -포인터 위치<br />
+          화면에 접촉이 있을 시 접촉의 경로를 선으로 나타내며 현재 접촉 지점의
+          화면상 X축, Y축 좌표를 표현하는 기능이다.<br /><br />
+          -표면 업데이트 표시<br />
+          창 화면이 업데이트되었을 때 플래시 처리를 하여 창 화면에 변화가
+          생겼는지 알려주는 기능이다.<br /><br />
+          -레이아웃 범위 표시<br />
+          화면에 존재하는 항목들의 경계, 여백, 칸을 표시하는 기능이다.<br /><br />
+        </p>
+      </article>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+      crossorigin="anonymous"
+    ></script>
+    <footer>
+      <a href="설문조사.html">설문조사하러 가기</a>
+      <p>Copyright 2023 by HJKIM</p>
+    </footer>
+  </body>
+</html>
